@@ -171,16 +171,23 @@ print()
 
 
 class Tochka:
-    def __init__(self, x=4, y=3):
-        self.x = x
-        self.y = y
+    def __init__(self, x1=4, x2=3):
+        self.x1 = x1
+        self.x2 = x2
 
     def origin(self):
-        return ((self.x ** 2) + (self.y ** 2)) ** 0.5
+        """return distance from self to 0"""
+        return ((self.x1 ** 2) + (self.x2 ** 2)) ** 0.5
+
+    def distance(self, t2):
+        """return distance from self to t2"""
+        return (((self.x2 - self.x1) ** 2) + ((t2.x2 - t2.x1) ** 2)) ** 0.5
 
     def __str__(self):
         return f'to begin {self.origin()} '
 
 
-t = Tochka()
+t = Tochka(5, 7)
 print(t)
+y = Tochka(4, -2)
+print(t.distance(y))
